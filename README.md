@@ -1,18 +1,18 @@
 # mydotfiles
-My thinkpad dotfiles. Work on gentoo linux, archlinux and maybe on linux from scratch with some changes
+My thinkpad dotfiles. Works on gentoo linux, archlinux fine without changes (maybe) 
 
 ## OS
  - Archlinux
  - Gentoo
- - Lfs (maybe)
+ - Lfs (only with changes) 
 
 ## Soft
 - Will be automaticly downloaded.
 
 ## How to use?
-- Go to folder with dots on your system
+- Go to folder with dotfiles
 - Run `chmod +x apply && ./apply`
 - Wait.
 
-## Have some issue?
+## Have some troubles?
  - I'll fix it! Just write
