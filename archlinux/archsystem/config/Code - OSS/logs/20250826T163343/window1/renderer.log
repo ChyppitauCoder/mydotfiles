@@ -1,0 +1,5 @@
+2025-08-26 16:33:47.138 [info] Started local extension host with pid 9943.
+2025-08-26 16:33:47.347 [info] Started initializing default profile extensions in extensions installation folder. file:///home/fempad/.vscode-oss/extensions
+2025-08-26 16:33:48.137 [info] ChatSessionStore: Migrating 0 chat sessions from storage service to file system
+2025-08-26 16:33:48.233 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/fempad/.vscode-oss/extensions
+2025-08-26 16:33:50.552 [info] [perf] Render performance baseline is 50ms

@@ -1,0 +1,53 @@
+#cfolder=""
+#hfolder=""
+#mode=""
+#if [ -f $1 ]; then
+#	if [if -f $2]; then
+#		if [-f $1]
+#	fi
+#	 
+#	if [[ "$(echo $1)" == "-l" ]]; then
+#		mode="l"	
+#	elif [[ "$(echo $1)" == "-c" ]]; then 
+#		mode="c"
+#	elif [[ "echo $1" == "--help" ]]; then
+#			echo -e "To use my configuration, you must to follow these rules:\n sudo ./apply [ -l - livecd mode, -c - normal mode, --help to see this again ] [ CONFIG FILES FOLDER ] [ HOME FOLDER (YOUR USER) ]\nThis rules created for running script not only on already installed systems."
+#	else
+#		echo "Unknow option. Use --help for help."
+#		mode="u"
+#	fi
+#else
+#	echo -e "To use my configuration, you must to follow these rules:\n sudo ./apply [ -l - livecd mode, -c - normal mode, --help to see this again ] [ CONFIG FILES FOLDER ] [ HOME FOLDER (YOUR USER) ]\nThis rules created for running script not only on already installed systems."
+#fi
+
+if [ -f /usr/bin/sudo ]; then
+	sudo cp -r ./home/* ~/../$USER
+	sudo cp -r ./config/* ~/.config
+	sudo cp ./home/screenshoting.sh /usr/bin/screenshoting
+	packages="$(tr '\n' ' ' < packages > output.txt && cat output.txt)"
+	sudo pacman -Sy $packages telegram-desktop
+	rm output.txt
+elif [ -f /usr/bin/doas ]; then
+	doas cp -r ../archsystem/config/* ~/.config
+	doas cp -r ../archsystem/home/* ~/
+	doas cp -r ../archsystem/home/screenshoting.sh /usr/bin/screenshoting
+	packages="$(tr '\n' ' ' < packages > output.txt && cat output.txt)"
+	doas pacman -Sy $packages telegram-desktop
+	rm output.txt
+else
+	echo "Sudo or doas not detected. Using su..."
+	sleep 2
+	echo "Enter your user if it was created: "
+	read usrb
+	if [[ "$(ls /home | grep $usrb)" == "" ]]; then
+		echo "User doesn't exists."
+	else
+		echo "Enter your root password"
+		su - -c "cp -r ../archsystem/config/* /home/$usrb/.config && cp -r ../archsystem/home/* /home/$usrb/ && cp -r ../archsystem/home/screenshoting.sh /usr/bin/screenshoting"
+		packages="$(tr '\n' ' ' < packages > output.txt && cat output.txt)"
+	
+		echo "enter your root password again"
+		su - -c "pacman -Sy $packages telegram-desktop"
+		rm output.txt"
+	fi
+fi
