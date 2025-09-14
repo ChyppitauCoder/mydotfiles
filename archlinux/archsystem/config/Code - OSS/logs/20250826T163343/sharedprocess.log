@@ -1,3 +1,0 @@
-2025-08-26 16:33:48.151 [info] Started initializing default profile extensions in extensions installation folder. file:///home/fempad/.vscode-oss/extensions
-2025-08-26 16:33:48.384 [warning] Failed to create default profile extensions manifest in extensions installation folder. file:///home/fempad/.vscode-oss/extensions Unable to create file 'vscode-userdata:/home/fempad/.vscode-oss/extensions/extensions.json' that already exists when overwrite flag is not set
-2025-08-26 16:33:48.384 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/fempad/.vscode-oss/extensions
